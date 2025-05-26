@@ -1,73 +1,85 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import './AIDiagnosticForm.css'; // optional if you want styling
 
-function AIDiagnosticForm() {
-  const featureNames = [
-    'treatment_best_response', 'SLC33A1', 'NFATC4', 'SLC25A43',
-    'SLC5A10', 'SLC6A8', 'SLC29A4', 'SLC6A1', 'SLC25A40', 'SLC1A1'
-  ];
+const AIDiagnosticForm = () => {
+  const [inputs, setInputs] = useState({
+    treatment_best_response: '',
+    SLC33A1: '',
+    NFATC4: '',
+    SLC25A43: '',
+    SLC5A10: '',
+    SLC6A8: '',
+    SLC29A4: '',
+    SLC6A1: '',
+    SLC25A40: '',
+    SLC1A1: ''
+  });
 
-  const initialState = featureNames.reduce((obj, key) => {
-    obj[key] = '';
-    return obj;
-  }, {});
-
-  const [formData, setFormData] = useState(initialState);
   const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setInputs({
+      ...inputs,
+      [e.target.name]: parseFloat(e.target.value)
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formattedData = {};
-    for (let key in formData) {
-      formattedData[key] = parseFloat(formData[key]);
-    }
+    setError(null);
     try {
-      const res = await axios.post('http://localhost:5001/predict', formattedData);
-      setResult(res.data);
+      const response = await fetch('http://localhost:5051/predict', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(inputs)
+      });
+
+      if (!response.ok) {
+        const err = await response.json();
+        throw new Error(err.error || 'Server error');
+      }
+
+      const data = await response.json();
+      setResult(data);
     } catch (err) {
-      console.error('Error calling API:', err);
+      setResult(null);
+      setError(err.message);
     }
   };
 
-  return React.createElement(
-    'div',
-    { className: 'p-4' },
-    React.createElement('h2', {}, 'AI Diagnostic Form'),
-    React.createElement(
-      'form',
-      { onSubmit: handleSubmit },
-      ...featureNames.map((key) =>
-        React.createElement(
-          'div',
-          { key },
-          React.createElement('label', {}, key),
-          React.createElement('input', {
-            type: 'number',
-            name: key,
-            value: formData[key],
-            onChange: handleChange,
-            required: true,
-            step: 'any'
-          })
-        )
-      ),
-      React.createElement('button', { type: 'submit' }, 'Run AI Diagnostic')
-    ),
-    result &&
-      React.createElement(
-        'div',
-        { className: 'mt-4' },
-        React.createElement('p', {}, `Prediction: ${result.prediction === 1 ? 'Likely to Respond' : 'Not Likely to Respond'}`),
-        React.createElement('p', {}, `FT Transformer Probabilities: ${result.ft_probs.join(', ')}`),
-        React.createElement('p', {}, `Random Forest Probabilities: ${result.rf_probs.join(', ')}`),
-        React.createElement('p', {}, `Ensemble Probabilities: ${result.ensemble_probs.join(', ')}`)
-      )
+  return (
+    <div className="form-container">
+      <h2>AI Diagnostic Predictor</h2>
+      <form onSubmit={handleSubmit} className="form-grid">
+        {Object.keys(inputs).map((key) => (
+          <div key={key} className="form-field">
+            <label>{key}</label>
+            <input
+              type="number"
+              step="any"
+              name={key}
+              value={inputs[key]}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        ))}
+        <button type="submit">Predict</button>
+      </form>
+
+      {error && <div className="error">Error: {error}</div>}
+
+      {result && (
+        <div className="result">
+          <h3>Prediction: <span>{result.label}</span></h3>
+          <p><strong>FT Transformer Probabilities:</strong> {result.ft_probs.map(p => p.toFixed(3)).join(', ')}</p>
+          <p><strong>Random Forest Probabilities:</strong> {result.rf_probs.map(p => p.toFixed(3)).join(', ')}</p>
+          <p><strong>Ensembled Probabilities:</strong> {result.ensemble_probs.map(p => p.toFixed(3)).join(', ')}</p>
+        </div>
+      )}
+    </div>
   );
-}
+};
 
 export default AIDiagnosticForm;
