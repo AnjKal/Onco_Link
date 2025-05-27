@@ -163,7 +163,7 @@
     window.onload = renderMealPlan;
 
     document.getElementById('regenerate-btn').onclick = async function() {
-      const response = await fetch('http://localhost:5000/generate-plan');
+      const response = await fetch('http://localhost:8000/generate-plan');
       const data = await response.json();
 
       if (data.error) {

@@ -7,19 +7,38 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    // Mock authentication: just check if fields are filled
-    if (email && password) {
-      alert('Login successful!');
-      if (role === 'doctor') {
-        navigate('/diagnostic');
+  const handleLogin = async () => {
+    if (!email || !password) {
+      setError('Please enter email and password');
+      return;
+    }
+
+    const payload = { email, password, role };
+
+    try {
+      const response = await fetch('http://localhost:5000/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert('Login successful!');
+        if (role === 'doctor') {
+          navigate('/diagnostic');
+        } else {
+          navigate('/home');
+        }
       } else {
-        navigate('/home');
+        setError(result.message || 'Login failed. Please try again.');
       }
-    } else {
-      alert('Login failed: Please enter email and password.');
+    } catch (err) {
+      setError('Error connecting to server');
     }
   };
 
@@ -52,10 +71,10 @@ export default function LoginPage() {
           </label>
         </div>
 
-        <label>Username</label>
+        <label>Email</label>
         <input
           type="text"
-          placeholder="Email or Phone Number"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -77,8 +96,13 @@ export default function LoginPage() {
             />
             Remember me
           </label>
-          <span className="reset">Reset Password?</span>
+          <span className="reset" onClick={() => navigate('/reset-password')}>
+          Reset Password?
+          </span>
+
         </div>
+
+        {error && <div className="error-msg">{error}</div>}
 
         <button className="login-button" onClick={handleLogin}>
           Sign In

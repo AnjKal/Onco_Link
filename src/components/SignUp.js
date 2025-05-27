@@ -26,7 +26,8 @@ export default function SignUpPage() {
 
   const handleSignUp = async () => {
     if (formData.password !== formData.confirmPassword) {
-      return setError('Passwords do not match');
+      setError('Passwords do not match');
+      return;
     }
 
     const payload = {
@@ -35,33 +36,48 @@ export default function SignUpPage() {
       role: formData.role,
       email: formData.email,
       password: formData.password,
+      confirm_password: formData.confirmPassword,
     };
 
-    // Add additional fields based on role
     if (formData.role === 'doctor') {
       payload.designation = formData.designation;
     } else if (formData.role === 'patient') {
       payload.sex = formData.sex;
     }
 
-    const response = await fetch('http://localhost:5000/api/signup', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
+    try {
+      const response = await fetch('http://localhost:5000/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
 
-    const result = await response.json();
+      const result = await response.json();
 
-    if (result.success) {
-      alert('Signed up successfully');
-      navigate('/'); 
-    } else {
-      setError('Sign-up failed. Please try again.');
+      if (result.success) {
+        alert('Signed up successfully!');
+        navigate('/');
+      } else {
+        setError(result.message || 'Sign-up failed. Please try again.');
+      }
+    } catch (err) {
+      setError('Error connecting to server');
     }
   };
 
+  // ✅ Background style using image from public folder
+  const backgroundStyle = {
+    backgroundImage: "url('/meal-planner/bg5.jpg')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
+
   return (
-    <div className="signup-container">
+    <div style={backgroundStyle}>
       <div className="signup-card">
         <h2>Sign Up</h2>
         <p className="subtitle">Choose your role to begin:</p>
@@ -71,7 +87,6 @@ export default function SignUpPage() {
         <input name="name" placeholder="Full Name" onChange={handleChange} />
         <input name="age" placeholder="Age" type="number" onChange={handleChange} />
 
-        {/* Conditional fields based on role */}
         {formData.role === 'doctor' && (
           <input name="designation" placeholder="Designation" onChange={handleChange} />
         )}

@@ -35,10 +35,10 @@ CORS(diagnostic_api)  # Enable CORS for frontend
 
 # Load models
 ft_model = FTTransformer()
-ft_model.load_state_dict(torch.load(r"C:\oncolink-frontend\final_final_final_ft.pth", map_location=torch.device('cpu')))
+ft_model.load_state_dict(torch.load(r"D:\Onco\final_final_final_ft.pth", map_location=torch.device('cpu')))
 ft_model.eval()
 
-rf_model = joblib.load(r"C:\oncolink-frontend\final_model_rf.pkl")
+rf_model = joblib.load(r"D:\Onco\final_model_rf.pkl")
 
 input_features = [
     'treatment_best_response', 'SLC33A1', 'NFATC4', 'SLC25A43',

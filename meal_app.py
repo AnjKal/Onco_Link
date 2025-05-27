@@ -125,4 +125,4 @@ def generate_plan():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    meal_app.run(debug=True)
+    meal_app.run(debug=True,port=8000)
