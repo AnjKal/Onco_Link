@@ -15,7 +15,7 @@ function HomePage() {
       </div>
       <div className="button-container-horizontal">
         <button className="nav-button" onClick={() => window.location.href = "/diagnostic"}>AI Diagnostic</button>
-        <button className="nav-button" onClick={() => window.location.href = "https://lungcancer-cn-4.onrender.com"}>Communications</button>
+        <button className="nav-button" onClick={() => window.location.href = "https://oncolink-comms.onrender.com"}>Communications</button>
         <button className="nav-button" onClick={() => window.location.href = "/meal-planner/planner.html"}>Meal Planner</button>
       </div>
     </div>
