@@ -1,49 +1,58 @@
 # OncoLink - Comprehensive Oncology Support Platform
 
 ## Overview
-OncoLink is a comprehensive platform designed to support cancer patients and healthcare providers with tools for meal planning, AI-powered diagnostics, and secure communication.
+OncoLink is a comprehensive platform designed to support cancer patients and healthcare providers with tools for meal planning, AI-powered diagnostics, and secure communication. The communications module is available as a separate component: [OncoLink Communications](https://github.com/your-username/oncolink-communications).
 
 ## Features
 
-### 1. AI-Powered Diagnostic Tool
-Our advanced diagnostic tool helps in preliminary cancer diagnosis using machine learning.
+### 1. AI-Powered Chemotherapy Efficacy Predictor
+Our advanced machine learning model predicts the efficacy of platinum-based chemotherapy drugs, helping oncologists make more informed treatment decisions.
 <!-- Placeholder for prediction interface screenshot -->
 <div align="center">
-  <h3>AI Diagnostic Interface</h3>
-  <img src="path/to/ai-prediction-screenshot.png" alt="AI Prediction Interface" width="600">
-  <p><em>AI-powered diagnostic tool for preliminary cancer assessment</em></p>
+  <h3>Chemotherapy Efficacy Predictor</h3>
+  <img src="path/to/ai-prediction-screenshot.png" alt="Chemotherapy Efficacy Prediction Interface" width="600">
+  <p><em>AI-powered tool for predicting platinum-based chemotherapy drug efficacy</em></p>
 </div>
 
-### 2. Personalized Meal Planner
-Customized meal planning for cancer patients based on their treatment and dietary needs.
-<!-- Placeholder for meal planner screenshot -->
+### 2. Intelligent 7-Day Meal Planner
+Our advanced meal planning system generates a complete 7-day meal plan with breakfast, lunch, and dinner options, specifically designed for cancer patients' nutritional needs.
+
+Key Features:
+- Utilizes the **Knapsack Algorithm** to optimize meal nutrition within dietary constraints
+- Implements **N-Queens Algorithm** to ensure meal variety and prevent repetition
+- Includes **Extra Meals** section with alternative options for easy substitutions
+- Customized based on treatment stage and dietary restrictions
+
+<!-- Meal Planner Screenshots -->
 <div align="center">
-  <h3>Meal Planning Interface</h3>
-  <img src="path/to/meal-planner-screenshot.png" alt="Meal Planner Interface" width="600">
-  <p><em>Personalized meal planning for optimal nutrition during treatment</em></p>
+  <h3>7-Day Meal Planning Interface</h3>
+  <img src="images/meal planner 1.png" alt="Meal Planner Interface 1" width="800">
+  <img src="images/meal planner 2.png" alt="Meal Planner Interface 2" width="800">
+  <p><em>Personalized weekly meal planning with intelligent algorithms for optimal nutrition</em></p>
 </div>
 
 ### 3. User-Friendly Landing Page
 An intuitive entry point to all platform features.
-<!-- Placeholder for landing page screenshot -->
+<!-- Login Page -->
 <div align="center">
-  <h3>Landing Page</h3>
-  <img src="path/to/landing-page-screenshot.png" alt="Landing Page" width="800">
-  <p><em>Welcome to OncoLink - Your comprehensive oncology support platform</em></p>
+  <h3>Login Page</h3>
+  <img src="images/login.png" alt="Login Page" width="400">
+  <p><em>Secure login interface for patients and healthcare providers</em></p>
 </div>
 
 ### 4. Secure Communications Portal
 Secure messaging system for patients and healthcare providers.
-<!-- Placeholder for communications portal screenshot -->
+<!-- Additional Model Information -->
 <div align="center">
-  <h3>Communications Portal</h3>
-  <img src="path/to/communications-portal-screenshot.png" alt="Communications Portal" width="800">
-  <p><em>Secure communication between patients and healthcare providers</em></p>
+  <h3>Alternative Models Explored</h3>
+  <img src="images/some other models tried 1.png" alt="Additional Model Analysis" width="800">
+  <p><em>Exploration of alternative machine learning approaches for treatment prediction</em></p>
 </div>
 
 ## Communication Module
-For the communications component of this project, please visit:
-[Communication Module Repository](https://github.com/your-username/oncolink-communications)
+The communications module is a separate component that enables secure messaging between patients and healthcare providers. For the latest version and documentation, please visit:
+
+[OncoLink Communications Repository](https://github.com/your-username/oncolink-communications)
 
 ## Getting Started
 
@@ -62,7 +71,6 @@ For the communications component of this project, please visit:
 2. Install dependencies:
    ```bash
    npm install
-   pip install -r requirements.txt
    ```
 
 3. Start the development server:
