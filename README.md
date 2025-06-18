@@ -10,7 +10,7 @@ Our advanced machine learning model predicts the efficacy of platinum-based chem
 <!-- Placeholder for prediction interface screenshot -->
 <div align="center">
   <h3>Chemotherapy Efficacy Predictor</h3>
-  <img src="images\AI working.png" alt="Chemotherapy Efficacy Prediction Interface" width="600">
+  <img src="images\AI working.png" alt="Chemotherapy Efficacy Prediction Interface" style="width: 50%; height: auto;">
   <p><em>AI-powered tool for predicting platinum-based chemotherapy drug efficacy</em></p>
 </div>
 
@@ -26,8 +26,8 @@ Key Features:
 <!-- Meal Planner Screenshots -->
 <div align="center">
   <h3>7-Day Meal Planning Interface</h3>
-  <img src="images/meal planner 1.png" alt="Meal Planner Interface 1" width="800">
-  <img src="images/meal planner 2.png" alt="Meal Planner Interface 2" width="800">
+  <img src="images/meal planner 1.png" alt="Meal Planner Interface 1" style="width: 50%; height: auto;">
+  <img src="images/meal planner 2.png" alt="Meal Planner Interface 2" style="width: 50%; height: auto;">
   <p><em>Personalized weekly meal planning with intelligent algorithms for optimal nutrition</em></p>
 </div>
 
@@ -36,7 +36,7 @@ An intuitive entry point to all platform features.
 <!-- Login Page -->
 <div align="center">
   <h3>Login Page</h3>
-  <img src="images/login.png" alt="Login Page" width="400">
+  <img src="images/login.png" alt="Login Page" style="width: 50%; height: auto;">
   <p><em>Secure login interface for patients and healthcare providers</em></p>
 </div>
 
@@ -45,7 +45,7 @@ Secure messaging system for patients and healthcare providers.
 <!-- Additional Model Information -->
 <div align="center">
   <h3>Alternative Models Explored</h3>
-  <img src="images/some other models tried 1.png" alt="Additional Model Analysis" width="800">
+  <img src="images/some other models tried 1.png" alt="Additional Model Analysis" style="width: 50%; height: auto;">
   <p><em>Exploration of alternative machine learning approaches for treatment prediction</em></p>
 </div>
 
