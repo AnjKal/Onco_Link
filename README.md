@@ -1,7 +1,7 @@
 # OncoLink - Comprehensive Oncology Support Platform
 
 ## Overview
-OncoLink is a comprehensive platform designed to support cancer patients and healthcare providers with tools for meal planning, AI-powered diagnostics, and secure communication. The communications module is available as a separate component: [OncoLink Communications](https://github.com/your-username/oncolink-communications).
+OncoLink is a comprehensive platform designed to support cancer patients and healthcare providers with tools for meal planning, AI-powered diagnostics, and secure communication. The communications module is available as a separate component: [OncoLink Communications](https://github.com/AnjKal/Oncolink_Comms).
 
 ## Features
 
@@ -52,7 +52,7 @@ Secure messaging system for patients and healthcare providers.
 ## Communication Module
 The communications module is a separate component that enables secure messaging between patients and healthcare providers. For the latest version and documentation, please visit:
 
-[OncoLink Communications Repository](https://github.com/your-username/oncolink-communications)
+[OncoLink Communications Repository](https://github.com/AnjKal/Oncolink_Comms)
 
 ## Getting Started
 
