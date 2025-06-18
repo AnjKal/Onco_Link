@@ -10,7 +10,7 @@ Our advanced machine learning model predicts the efficacy of platinum-based chem
 <!-- Placeholder for prediction interface screenshot -->
 <div align="center">
   <h3>Chemotherapy Efficacy Predictor</h3>
-  <img src="path/to/ai-prediction-screenshot.png" alt="Chemotherapy Efficacy Prediction Interface" width="600">
+  <img src="images\AI working.png" alt="Chemotherapy Efficacy Prediction Interface" width="600">
   <p><em>AI-powered tool for predicting platinum-based chemotherapy drug efficacy</em></p>
 </div>
 
