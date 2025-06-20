@@ -35,8 +35,8 @@ Key Features:
 An intuitive entry point to all platform features.
 <!-- Login Page -->
 <div align="center">
-  <h3>Login Page</h3>
-  <img src="images/landing.png" alt="Landing Page" style="width: 50%; height: auto;">
+  <h3>Landing Page</h3>
+  <img src="images/landing page.png" alt="Landing Page" style="width: 50%; height: auto;">
   <p><em>Secure login interface for patients and healthcare providers</em></p>
 </div>
 
