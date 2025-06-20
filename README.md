@@ -36,7 +36,7 @@ An intuitive entry point to all platform features.
 <!-- Login Page -->
 <div align="center">
   <h3>Login Page</h3>
-  <img src="images/login.png" alt="Login Page" style="width: 50%; height: auto;">
+  <img src="images/landing.png" alt="Landing Page" style="width: 50%; height: auto;">
   <p><em>Secure login interface for patients and healthcare providers</em></p>
 </div>
 
